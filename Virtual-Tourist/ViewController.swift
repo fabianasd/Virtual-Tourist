@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Virtual-Tourist
 //
-//  Created by Gabriel Petrovick on 19/06/21.
+//  Created by Fabiana Petrovick on 19/06/21.
 //  Copyright © 2021 Fabiana Petrovick. All rights reserved.
 //
 
