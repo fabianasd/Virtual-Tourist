@@ -13,4 +13,9 @@ import CoreData
 
 class AlbumController: UIViewController {
     @IBOutlet weak var AlbumPhotos: UIStackView!
+    
+    
+    @IBAction func returnMap(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }

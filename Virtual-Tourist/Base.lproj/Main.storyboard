@@ -67,7 +67,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                         <items>
                                             <navigationItem leftItemsSupplementBackButton="YES" id="PdF-3y-YOk">
-                                                <barButtonItem key="leftBarButtonItem" title="OK" image="lessthan" catalog="system" id="WC1-Ts-uey"/>
+                                                <barButtonItem key="leftBarButtonItem" title="OK" image="lessthan" catalog="system" id="WC1-Ts-uey">
+                                                    <connections>
+                                                        <action selector="returnMap:" destination="VPR-Dc-whd" id="9Rk-rN-egm"/>
+                                                    </connections>
+                                                </barButtonItem>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
