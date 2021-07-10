@@ -112,6 +112,9 @@
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yuL-qc-jOw">
                                 <rect key="frame" x="0.0" y="56" width="320" height="132"/>
+                                <connections>
+                                    <outlet property="delegate" destination="VPR-Dc-whd" id="VDD-GK-ikZ"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -133,7 +136,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="kPi-gy-dYG"/>
                     <connections>
-                        <outlet property="AlbumPhotos" destination="9Iw-rH-qGU" id="9un-GF-GMZ"/>
+                        <outlet property="albumPhotos" destination="9Iw-rH-qGU" id="fuB-cs-kWp"/>
+                        <outlet property="mapView" destination="yuL-qc-jOw" id="uib-8u-LUq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15k-58-pTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
