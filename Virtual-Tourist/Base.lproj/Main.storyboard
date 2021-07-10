@@ -45,7 +45,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="rRY-CK-ktj" id="Bv7-sa-4Ks"/>
-                        <segue destination="VPR-Dc-whd" kind="show" identifier="AlbumPhotos" id="eiQ-lM-P8T"/>
+                        <segue destination="VPR-Dc-whd" kind="show" identifier="AlbumPhotos" id="DLF-gA-EQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -61,25 +61,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRV-RN-QvG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yuL-qc-jOw">
-                                        <rect key="frame" x="0.0" y="1" width="320" height="115"/>
-                                    </mapView>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enx-C3-ZzW">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                        <items>
+                                            <navigationItem leftItemsSupplementBackButton="YES" id="PdF-3y-YOk">
+                                                <barButtonItem key="leftBarButtonItem" title="OK" image="lessthan" catalog="system" id="WC1-Ts-uey"/>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="yuL-qc-jOw" firstAttribute="width" secondItem="yRV-RN-QvG" secondAttribute="width" id="6p5-wP-9Lh"/>
-                                    <constraint firstItem="yuL-qc-jOw" firstAttribute="centerX" secondItem="yRV-RN-QvG" secondAttribute="centerX" id="YVF-9a-KHg"/>
-                                    <constraint firstItem="yuL-qc-jOw" firstAttribute="top" secondItem="yRV-RN-QvG" secondAttribute="top" constant="1" id="sCB-yw-Zuf"/>
-                                    <constraint firstItem="yuL-qc-jOw" firstAttribute="height" secondItem="yRV-RN-QvG" secondAttribute="height" multiplier="1.04615" id="uPm-U3-1KF"/>
+                                    <constraint firstAttribute="bottom" secondItem="enx-C3-ZzW" secondAttribute="bottom" constant="-54" id="9Pi-wQ-Htk"/>
+                                    <constraint firstItem="enx-C3-ZzW" firstAttribute="top" secondItem="yRV-RN-QvG" secondAttribute="top" id="Ew9-OV-8gv"/>
+                                    <constraint firstAttribute="trailing" secondItem="enx-C3-ZzW" secondAttribute="trailing" id="RXk-ha-nxn"/>
+                                    <constraint firstItem="enx-C3-ZzW" firstAttribute="leading" secondItem="yRV-RN-QvG" secondAttribute="leading" id="VIK-se-cHf"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-oI-LEL">
-                                <rect key="frame" x="0.0" y="110" width="320" height="438"/>
+                                <rect key="frame" x="0.0" y="187" width="320" height="361"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Iw-rH-qGU">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="438"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="361"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumPhotos" id="Fcc-hz-sx8">
@@ -95,23 +100,30 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="9Iw-rH-qGU" firstAttribute="top" secondItem="hEX-oI-LEL" secondAttribute="top" id="LNr-Kc-BI7"/>
-                                    <constraint firstAttribute="bottom" secondItem="9Iw-rH-qGU" secondAttribute="bottom" id="MYl-i7-BMX"/>
-                                    <constraint firstAttribute="trailing" secondItem="9Iw-rH-qGU" secondAttribute="trailing" id="Snn-I8-36A"/>
-                                    <constraint firstItem="9Iw-rH-qGU" firstAttribute="leading" secondItem="hEX-oI-LEL" secondAttribute="leading" id="iyk-v6-MyI"/>
+                                    <constraint firstItem="9Iw-rH-qGU" firstAttribute="leading" secondItem="hEX-oI-LEL" secondAttribute="leading" id="A76-ug-LLA"/>
+                                    <constraint firstItem="9Iw-rH-qGU" firstAttribute="top" secondItem="hEX-oI-LEL" secondAttribute="top" id="KiO-8R-RGT"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Iw-rH-qGU" secondAttribute="trailing" id="LHH-Yn-0w8"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Iw-rH-qGU" secondAttribute="bottom" id="a7E-8F-hVU"/>
                                 </constraints>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yuL-qc-jOw">
+                                <rect key="frame" x="0.0" y="56" width="320" height="132"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="hEX-oI-LEL" firstAttribute="bottom" secondItem="XoU-Aa-nCf" secondAttribute="bottom" id="99J-7T-ohf"/>
-                            <constraint firstItem="XoU-Aa-nCf" firstAttribute="bottom" secondItem="yRV-RN-QvG" secondAttribute="bottom" constant="438" id="P9G-VJ-7dt"/>
+                            <constraint firstItem="hEX-oI-LEL" firstAttribute="trailing" secondItem="XoU-Aa-nCf" secondAttribute="trailing" id="B2J-zP-E2y"/>
+                            <constraint firstItem="yuL-qc-jOw" firstAttribute="leading" secondItem="rXn-ds-M89" secondAttribute="leading" id="CX8-Gm-qnn"/>
+                            <constraint firstAttribute="bottom" secondItem="yuL-qc-jOw" secondAttribute="bottom" constant="360" id="M1s-Em-dAz"/>
+                            <constraint firstItem="XoU-Aa-nCf" firstAttribute="bottom" secondItem="yRV-RN-QvG" secondAttribute="bottom" constant="492" id="P9G-VJ-7dt"/>
                             <constraint firstItem="yRV-RN-QvG" firstAttribute="top" secondItem="XoU-Aa-nCf" secondAttribute="top" id="QKB-kA-hNB"/>
+                            <constraint firstAttribute="trailing" secondItem="yuL-qc-jOw" secondAttribute="trailing" id="T5W-ll-uzi"/>
+                            <constraint firstItem="hEX-oI-LEL" firstAttribute="top" secondItem="yRV-RN-QvG" secondAttribute="bottom" constant="131" id="YFT-A7-ojp"/>
                             <constraint firstItem="yRV-RN-QvG" firstAttribute="leading" secondItem="XoU-Aa-nCf" secondAttribute="leading" id="cjs-S1-Uf7"/>
-                            <constraint firstItem="hEX-oI-LEL" firstAttribute="trailing" secondItem="XoU-Aa-nCf" secondAttribute="trailing" id="m6b-V5-V40"/>
-                            <constraint firstItem="hEX-oI-LEL" firstAttribute="leading" secondItem="XoU-Aa-nCf" secondAttribute="leading" id="rPR-rL-Zh4"/>
+                            <constraint firstItem="yuL-qc-jOw" firstAttribute="top" secondItem="XoU-Aa-nCf" secondAttribute="top" constant="56" id="gxf-pg-2aS"/>
+                            <constraint firstItem="hEX-oI-LEL" firstAttribute="bottom" secondItem="XoU-Aa-nCf" secondAttribute="bottom" id="l5M-l3-9UW"/>
                             <constraint firstItem="yRV-RN-QvG" firstAttribute="centerX" secondItem="rXn-ds-M89" secondAttribute="centerX" id="rbg-YF-VlT"/>
-                            <constraint firstItem="hEX-oI-LEL" firstAttribute="top" secondItem="yRV-RN-QvG" secondAttribute="bottom" id="rlo-Ke-ENl"/>
+                            <constraint firstItem="hEX-oI-LEL" firstAttribute="leading" secondItem="XoU-Aa-nCf" secondAttribute="leading" id="xWi-JI-5Ae"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XoU-Aa-nCf"/>
                     </view>
@@ -125,4 +137,7 @@
             <point key="canvasLocation" x="890.625" y="138.38028169014083"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lessthan" catalog="system" width="128" height="111"/>
+    </resources>
 </document>

@@ -55,4 +55,15 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
             self.mapView.addAnnotation(annotation)
         }
     }
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AlbumPhotos" {
+            let userViewController = segue.destination as! AlbumController
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        performSegue(withIdentifier: "AlbumPhotos", sender: nil)
+    }
+    
 }
