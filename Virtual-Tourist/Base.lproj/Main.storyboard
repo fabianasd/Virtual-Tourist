@@ -67,7 +67,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                         <items>
                                             <navigationItem leftItemsSupplementBackButton="YES" id="PdF-3y-YOk">
-                                                <barButtonItem key="leftBarButtonItem" title="OK" image="lessthan" catalog="system" id="WC1-Ts-uey">
+                                                <barButtonItem key="leftBarButtonItem" systemItem="reply" id="WC1-Ts-uey">
                                                     <connections>
                                                         <action selector="returnMap:" destination="VPR-Dc-whd" id="9Rk-rN-egm"/>
                                                     </connections>
@@ -145,7 +145,4 @@
             <point key="canvasLocation" x="890.625" y="138.38028169014083"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="lessthan" catalog="system" width="128" height="111"/>
-    </resources>
 </document>

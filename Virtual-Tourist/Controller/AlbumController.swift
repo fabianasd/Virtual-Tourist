@@ -6,7 +6,6 @@
 //  Copyright © 2021 Fabiana Petrovick. All rights reserved.
 //
 
-
 import UIKit
 import MapKit
 import CoreData
@@ -16,24 +15,24 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     @IBOutlet weak var mapView: MKMapView!
     
     var editingMap:MapModel!
+    var selectedAnnotation: MKPointAnnotation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
     }
     
-    
-    
     @IBAction func returnMap(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
-        addPinToMap()
+        addPinToMap(annotation: selectedAnnotation)
+        centerOnCurrentPin()
     }
+    
     // MARK: - MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         let reuseId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
@@ -51,20 +50,11 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         return pinView
     }
     
-    func addPinToMap() {
-        //        let lat = CLLocationDegrees(editingMap.latitude as! Double)
-        //        let long = CLLocationDegrees(editingMap.longitude as! Double)
-        //
-        //        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        
-        //        let first = editingMap.firstName as! String
-        //        let last = editingMap.lastName as! String
-        //        let mediaURL = editingMap.mediaURL as! String
-        
-        let annotation = MKPointAnnotation()
-        //        annotation.coordinate = coordinate
-        
+    func addPinToMap(annotation: MKPointAnnotation) {
         self.mapView.addAnnotation(annotation)
-    //    self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+    }
+    
+    func centerOnCurrentPin() {
+        self.mapView.setCenter(selectedAnnotation.coordinate, animated: true)
     }
 }

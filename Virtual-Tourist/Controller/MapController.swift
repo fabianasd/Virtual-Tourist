@@ -5,6 +5,7 @@
 //  Created by Fabiana Petrovick on 08/07/21.
 //  Copyright © 2021 Fabiana Petrovick. All rights reserved.
 //
+
 import UIKit
 import MapKit
 import CoreData
@@ -55,15 +56,16 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
             self.mapView.addAnnotation(annotation)
         }
     }
-        
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AlbumPhotos" {
             let userViewController = segue.destination as! AlbumController
+            userViewController.selectedAnnotation = sender as! MKPointAnnotation
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        performSegue(withIdentifier: "AlbumPhotos", sender: nil)
+        performSegue(withIdentifier: "AlbumPhotos", sender: view.annotation)
     }
     
 }
