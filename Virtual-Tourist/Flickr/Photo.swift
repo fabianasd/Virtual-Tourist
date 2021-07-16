@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Photo: Codable, Identifiable {
+struct Photo: Codable {
     let title: String
     let remoteURL: URL?
     let id: String

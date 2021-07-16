@@ -57,4 +57,18 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     func centerOnCurrentPin() {
         self.mapView.setCenter(selectedAnnotation.coordinate, animated: true)
     }
+    
+//    @IBAction func btn(_ sender: Any) {
+//        print("aqi")
+//
+//        Flickr.getFlickr(completion:handleStudentResponse(maps:success:error:))
+//    }
+//
+//    func handleStudentResponse(maps: [Map], success: Bool, error: Error?) {
+//        if(success) {
+//            print("aqui")
+//        } else {
+//            print("aquiiiii")
+//        }
+//    }
 }

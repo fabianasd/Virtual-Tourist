@@ -1,5 +1,5 @@
 //
-//  License.swift
+//  FlickrAPI.swift
 //  Virtual-Tourist
 //
 //  Created by Fabiana Petrovick on 13/07/21.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct License {
-    let id: String
-    let name: String
-    let urlString: String?
+struct FlickrAPI {
+    // keys and tokens
+    static let apiKey = ""
+    static let secretKey = ""
 }
