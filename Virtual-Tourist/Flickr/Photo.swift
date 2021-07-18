@@ -18,9 +18,9 @@ struct Photo: Codable {
     let owner: String
     let views: String
     let license: String
-    var latitude: String // handle Flickr API returning an Int or a String
-    var longitude: String // handle Flickr API returning an Int or a String
-    var accuracy: String // handle Flickr API returning an Int or a String
+    var latitude: String
+    var longitude: String
+    var accuracy: String 
     
     enum CodingKeys: String, CodingKey {
         case title

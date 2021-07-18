@@ -14,12 +14,13 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     @IBOutlet weak var albumPhotos: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     
-    var editingMap:MapModel!
     var selectedAnnotation: MKPointAnnotation!
+    var pagina = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
+        buscarImagensNoFlickr()
     }
     
     @IBAction func returnMap(_ sender: Any) {
@@ -58,17 +59,10 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         self.mapView.setCenter(selectedAnnotation.coordinate, animated: true)
     }
     
-//    @IBAction func btn(_ sender: Any) {
-//        print("aqi")
-//
-//        Flickr.getFlickr(completion:handleStudentResponse(maps:success:error:))
-//    }
-//
-//    func handleStudentResponse(maps: [Map], success: Bool, error: Error?) {
-//        if(success) {
-//            print("aqui")
-//        } else {
-//            print("aquiiiii")
-//        }
-//    }
+    func buscarImagensNoFlickr() {
+        Flickr.buscarFotosDoFlickrDeAcordoComLatitudeELongitudePorPagina(latitude: selectedAnnotation.coordinate.latitude, longitude: selectedAnnotation.coordinate.longitude, pageNumero: pagina) { flickrResponse, error in
+            
+        }
+    }
+    
 }

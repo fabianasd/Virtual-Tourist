@@ -59,8 +59,8 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AlbumPhotos" {
-            let userViewController = segue.destination as! AlbumController
-            userViewController.selectedAnnotation = sender as? MKPointAnnotation
+            let albumController = segue.destination as! AlbumController
+            albumController.selectedAnnotation = sender as! MKPointAnnotation
         }
     }
     
