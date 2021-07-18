@@ -1,5 +1,5 @@
 //
-//  mapModel.swift
+//  photosModel.swift
 //  Virtual-Tourist
 //
 //  Created by Fabiana Petrovick on 08/07/21.
@@ -8,9 +8,10 @@
 
 import Foundation
 
-class MapModel {
+class PhotosModel {
     
-    static var maplist = [Map]()
+    static var photoList = [Photos]()
     
 }
+
 

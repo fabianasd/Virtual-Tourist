@@ -11,7 +11,7 @@ import MapKit
 import CoreData
 
 class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    @IBOutlet weak var albumPhotos: UITableView!
+   // @IBOutlet weak var albumPhotos: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     
     var selectedAnnotation: MKPointAnnotation!
@@ -64,5 +64,22 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
             
         }
     }
+}
+
+func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return PhotosModel.photoList.count
+}
+
+func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return PhotosModel.photoList.count
+}
+
+func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+
     
+ // Configurar a célula
+    cell.backgroundColor = .black
+    
+    return cell
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Photo: Codable {
+struct Photo: Codable, Equatable {
     let title: String
     let remoteURL: URL?
     let id: String

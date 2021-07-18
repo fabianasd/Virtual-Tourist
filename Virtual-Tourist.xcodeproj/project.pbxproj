@@ -22,7 +22,7 @@
 		0CD17260269E64340072A82A /* FlickrFavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD1725F269E64340072A82A /* FlickrFavoritesResponse.swift */; };
 		0CD17264269E64750072A82A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD17263269E64750072A82A /* Photo.swift */; };
 		0CE10AD3269742A400789A69 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE10AD2269742A400789A69 /* MapController.swift */; };
-		0CE10AD626976B8100789A69 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE10AD526976B8100789A69 /* MapModel.swift */; };
+		0CE10AD626976B8100789A69 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE10AD526976B8100789A69 /* PhotosModel.swift */; };
 		0CE10ADA2697C9DE00789A69 /* AlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE10AD92697C9DE00789A69 /* AlbumController.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,7 @@
 		0CD1725F269E64340072A82A /* FlickrFavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrFavoritesResponse.swift; sourceTree = "<group>"; };
 		0CD17263269E64750072A82A /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		0CE10AD2269742A400789A69 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
-		0CE10AD526976B8100789A69 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		0CE10AD526976B8100789A69 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		0CE10AD92697C9DE00789A69 /* AlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +118,7 @@
 		0CE10AD426976B6D00789A69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0CE10AD526976B8100789A69 /* MapModel.swift */,
+				0CE10AD526976B8100789A69 /* PhotosModel.swift */,
 				0CAC218326A11F9F00A640FA /* Map.swift */,
 			);
 			path = Model;
@@ -199,7 +199,7 @@
 				0CE10ADA2697C9DE00789A69 /* AlbumController.swift in Sources */,
 				0C8B018626A3B80100FD21C9 /* FlickrResponse.swift in Sources */,
 				0CE10AD3269742A400789A69 /* MapController.swift in Sources */,
-				0CE10AD626976B8100789A69 /* MapModel.swift in Sources */,
+				0CE10AD626976B8100789A69 /* PhotosModel.swift in Sources */,
 				0CAC217726A11A5900A640FA /* Flickr.swift in Sources */,
 				0CD1725E269E64190072A82A /* FlickrPhotosResponse.swift in Sources */,
 				0CAC218426A11F9F00A640FA /* Map.swift in Sources */,
