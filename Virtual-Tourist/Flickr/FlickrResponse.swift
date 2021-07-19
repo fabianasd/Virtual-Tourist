@@ -9,9 +9,11 @@
 import Foundation
 
 struct FlickrResponse: Codable {
+    var photos: Photos
     let stat: String
     
     enum CodingKeys: String, CodingKey {
+        case photos
         case stat
     }
 }
