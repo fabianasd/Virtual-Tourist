@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 
-class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     // @IBOutlet weak var albumPhotos: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mapView: MKMapView!
@@ -22,8 +22,14 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        self.collectionView.delegate = self
+        //        self.collectionView.delegate = self
         buscarImagensNoFlickr()
+        //        self.collectionView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //        buscarImagensNoFlickr()
+        collectionView.reloadData()
     }
     
     @IBAction func returnMap(_ sender: Any) {
@@ -64,16 +70,28 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     
     func buscarImagensNoFlickr() {
         Flickr.buscarFotosDoFlickrDeAcordoComLatitudeELongitudePorPagina(latitude: selectedAnnotation.coordinate.latitude, longitude: selectedAnnotation.coordinate.longitude, pageNumero: pagina) { flickrResponse, error in
-            if( error != nil) {
-                PhotosModel.photoList = FlickrResponse(from: Photos as! Decoder)
+            // se nao for erro retornar as fotos
+            if( flickrResponse != nil) {
+                //retornar as fotos
+                print("buscarImagensNoFlickr")
+                PhotosModel.photoList = (flickrResponse?.photos.photo ?? []) as [Photos]
+                self.collectionView.reloadData()
+            } else {
+                // retornar o erro
+                print("Error \(error)")
             }
         }
     }
+}
+
+extension AlbumController: UICollectionViewDataSource {
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return PhotosModel.photoList.count
+        return 3
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        buscarImagensNoFlickr()
         return PhotosModel.photoList.count
     }
     
