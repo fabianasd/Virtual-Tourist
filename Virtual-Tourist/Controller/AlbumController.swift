@@ -11,10 +11,9 @@ import MapKit
 import CoreData
 
 class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    // @IBOutlet weak var albumPhotos: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mapView: MKMapView!
-    //    @IBOutlet weak var imageFlickr: UIImageView!
+    @IBOutlet weak var imageFlickr: UIImageView!
     
     var selectedAnnotation: MKPointAnnotation!
     var pagina = 1
@@ -22,13 +21,10 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        //        self.collectionView.delegate = self
         buscarImagensNoFlickr()
-        //        self.collectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //        buscarImagensNoFlickr()
         collectionView.reloadData()
     }
     
@@ -73,8 +69,7 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
             // se nao for erro retornar as fotos
             if( flickrResponse != nil) {
                 //retornar as fotos
-                print("buscarImagensNoFlickr")
-                PhotosModel.photoList = (flickrResponse?.photos.photo ?? []) as [Photos]
+                PhotosModel.photoList = flickrResponse?.photos.photo as! [Photo]
                 self.collectionView.reloadData()
             } else {
                 // retornar o erro
@@ -82,29 +77,41 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
             }
         }
     }
+    
+//    @IBAction func newCollection(_ sender: Any) {
+//        print("reload")
+//        reloadInputViews()
+//    }
+    
 }
 
 extension AlbumController: UICollectionViewDataSource {
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        buscarImagensNoFlickr()
         return PhotosModel.photoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("Item da lista:\(indexPath.row)")
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath as IndexPath)
-        
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        //  cell.myLabel.text = self.items[indexPath.row] // The row value is the same as the index of the desired text within the array.
+    
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "PhotoCell",
+            for: indexPath
+        ) as! FlickrPhotoCell
+
         let flickrPhoto = PhotosModel.photoList[indexPath.row]
+        let url = flickrPhoto.remoteURL
+        let data = try? Data(contentsOf: url)
+        cell.backgroundColor = .white
+
+        cell.imageView.image = UIImage(data: data!)
         
-        //        cell.imageView.image = flickrPhoto
-        cell.backgroundColor = UIColor.black // make cell more visible in our example project
+        
+        cell.backgroundColor = UIColor.black
         
         return cell
     }

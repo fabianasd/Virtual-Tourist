@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C6CAF6426AA360F00605770 /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CAF6326AA360F00605770 /* FlickrPhotoCell.swift */; };
 		0C739629267EC6E900EF0A6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C739628267EC6E900EF0A6E /* AppDelegate.swift */; };
 		0C73962B267EC6E900EF0A6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C73962A267EC6E900EF0A6E /* SceneDelegate.swift */; };
 		0C739630267EC6E900EF0A6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C73962E267EC6E900EF0A6E /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C6CAF6326AA360F00605770 /* FlickrPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCell.swift; sourceTree = "<group>"; };
 		0C739625267EC6E900EF0A6E /* Virtual-Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual-Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C739628267EC6E900EF0A6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C73962A267EC6E900EF0A6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				0CD17258269E63CB0072A82A /* EndPoint.swift */,
 				0CAC217626A11A5900A640FA /* Flickr.swift */,
 				0C8B018526A3B80100FD21C9 /* FlickrResponse.swift */,
+				0C6CAF6326AA360F00605770 /* FlickrPhotoCell.swift */,
 			);
 			path = Flickr;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				0CAC218426A11F9F00A640FA /* Map.swift in Sources */,
 				0CD17257269E63200072A82A /* FlickrAPI.swift in Sources */,
 				0CD1725C269E63F60072A82A /* FlickrPhotosInfoResponse.swift in Sources */,
+				0C6CAF6426AA360F00605770 /* FlickrPhotoCell.swift in Sources */,
 				0C739629267EC6E900EF0A6E /* AppDelegate.swift in Sources */,
 				0CD17260269E64340072A82A /* FlickrFavoritesResponse.swift in Sources */,
 				0CD17259269E63CB0072A82A /* EndPoint.swift in Sources */,

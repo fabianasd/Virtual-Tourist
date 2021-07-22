@@ -19,8 +19,11 @@ class Flickr {
     class func montarUrlParaMontarServicoFlickr(latitude: Double, longitude: Double, pageNumero: Int) -> URL {
         let base = "https://www.flickr.com/services/rest/?method=flickr.photos.search"
         let urlComTodosOsParametros: String = base + "&api_key=\(FlickrAPI.apiKey)" +
-            "&lat=\(latitude)" +
-            "&lon=\(longitude)" +
+//            "&lat=\(latitude)" +
+//            "&lon=\(longitude)" +
+            "&lat=-18.588785" +
+            "&lon=-46.515379" +
+        
             "&radius=\(Flickr.AtributosDeRequisicaoDoFlickr.radius)" +
             "&per_page=\(Flickr.AtributosDeRequisicaoDoFlickr.perPage)" +
             "&page=\(pageNumero)" +
@@ -32,11 +35,11 @@ class Flickr {
         let request = URLRequest(url: Flickr.montarUrlParaMontarServicoFlickr(latitude: latitude, longitude: longitude, pageNumero: pageNumero))
         print(" aqui a url) \(request)")
         let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
-            if error != nil { // Handle error...
+        let task = session.dataTask(with: request) { data, response, serviceError in
+            if serviceError != nil { // Handle error...
                 DispatchQueue.main.async {
                     //   completion(false, error)
-                    completion(nil, error)
+                    completion(nil, serviceError)
                 }
             }
             print(String(data: data!, encoding: .utf8)!)

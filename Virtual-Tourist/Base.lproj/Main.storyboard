@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +28,7 @@
                                         </connections>
                                     </mapView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="rRY-CK-ktj" firstAttribute="top" secondItem="Dy8-G0-pqz" secondAttribute="top" id="Ii2-qm-qbj"/>
                                     <constraint firstItem="rRY-CK-ktj" firstAttribute="leading" secondItem="Dy8-G0-pqz" secondAttribute="leading" id="JVg-LH-3VH"/>
@@ -35,14 +37,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dy8-G0-pqz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3oJ-uR-zGP"/>
                             <constraint firstItem="Dy8-G0-pqz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lhs-d3-EgR"/>
                             <constraint firstAttribute="bottom" secondItem="Dy8-G0-pqz" secondAttribute="bottom" id="Xaj-eU-X0w"/>
                             <constraint firstItem="Dy8-G0-pqz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="v63-ba-6hs"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="rRY-CK-ktj" id="Bv7-sa-4Ks"/>
@@ -77,7 +79,7 @@
                                         </items>
                                     </navigationBar>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="enx-C3-ZzW" secondAttribute="bottom" constant="-54" id="9Pi-wQ-Htk"/>
                                     <constraint firstItem="enx-C3-ZzW" firstAttribute="top" secondItem="yRV-RN-QvG" secondAttribute="top" id="Ew9-OV-8gv"/>
@@ -88,16 +90,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-oI-LEL">
                                 <rect key="frame" x="0.0" y="187" width="320" height="361"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaI-rx-qVb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaI-rx-qVb">
                                         <rect key="frame" x="108" y="331" width="104" height="30"/>
                                         <color key="backgroundColor" red="0.59857589010000001" green="0.86208599809999997" blue="0.94627636670000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="New Collection">
                                             <color key="titleColor" red="0.15460468390000001" green="0.30267678149999999" blue="0.97225967639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="newCollection:" destination="VPR-Dc-whd" eventType="touchDragInside" id="RKC-oy-kwd"/>
+                                        </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WTD-gh-O0f">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="327"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Zq-dm-DBb">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -105,7 +110,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="luG-tw-Ivy" customClass="MyCollectionViewCell" customModule="Virtual_Tourist" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="luG-tw-Ivy" customClass="FlickrPhotoCell" customModule="Virtual_Tourist" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Kak-em-u75">
@@ -125,7 +130,7 @@
                                                 </collectionViewCellContentView>
                                                 <color key="backgroundColor" red="0.59857589010000001" green="0.86208599809999997" blue="0.94627636670000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <outlet property="FlickrPhotoCell" destination="7R6-tY-YZh" id="hba-BG-f14"/>
+                                                    <outlet property="imageView" destination="7R6-tY-YZh" id="sqW-A2-rll"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -135,7 +140,7 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="OaI-rx-qVb" firstAttribute="centerX" secondItem="WTD-gh-O0f" secondAttribute="centerX" id="7Mc-z2-Rn3"/>
                                     <constraint firstAttribute="bottom" secondItem="OaI-rx-qVb" secondAttribute="bottom" id="8Wk-Ri-pTb"/>
@@ -152,7 +157,8 @@
                                 </connections>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="XoU-Aa-nCf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hEX-oI-LEL" firstAttribute="trailing" secondItem="XoU-Aa-nCf" secondAttribute="trailing" id="B2J-zP-E2y"/>
                             <constraint firstItem="yuL-qc-jOw" firstAttribute="leading" secondItem="rXn-ds-M89" secondAttribute="leading" id="CX8-Gm-qnn"/>
@@ -167,7 +173,6 @@
                             <constraint firstItem="yRV-RN-QvG" firstAttribute="centerX" secondItem="rXn-ds-M89" secondAttribute="centerX" id="rbg-YF-VlT"/>
                             <constraint firstItem="hEX-oI-LEL" firstAttribute="leading" secondItem="XoU-Aa-nCf" secondAttribute="leading" id="xWi-JI-5Ae"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="XoU-Aa-nCf"/>
                     </view>
                     <navigationItem key="navigationItem" id="kPi-gy-dYG"/>
                     <connections>
@@ -180,4 +185,12 @@
             <point key="canvasLocation" x="890.625" y="138.38028169014083"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

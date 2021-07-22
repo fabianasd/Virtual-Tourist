@@ -10,7 +10,7 @@ import Foundation
 
 class PhotosModel {
     
-    static var photoList = [Photos]()
+    static var photoList = [Photo]()
     
 }
 
