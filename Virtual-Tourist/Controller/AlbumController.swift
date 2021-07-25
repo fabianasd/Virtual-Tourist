@@ -13,7 +13,8 @@ import CoreData
 class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var imageFlickr: UIImageView!
+    @IBOutlet weak var newCollection: UIButton!
+    @IBOutlet weak var labelMensage: UILabel!
     
     var selectedAnnotation: MKPointAnnotation!
     var pagina = 1
@@ -22,6 +23,8 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         super.viewDidLoad()
         self.mapView.delegate = self
         buscarImagensNoFlickr()
+        labelMensage.isHidden = true
+        newCollection.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,23 +70,19 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     func buscarImagensNoFlickr() {
         Flickr.buscarFotosDoFlickrDeAcordoComLatitudeELongitudePorPagina(latitude: selectedAnnotation.coordinate.latitude, longitude: selectedAnnotation.coordinate.longitude, pageNumero: pagina) { flickrResponse, error in
             // se nao for erro retornar as fotos
-            if( flickrResponse != nil) {
+            if( flickrResponse?.photos.photo != []) {
                 //retornar as fotos
                 PhotosModel.photoList = flickrResponse?.photos.photo as! [Photo]
                 self.collectionView.reloadData()
+                self.newCollection.isHidden = false
             } else {
-                // retornar o erro
-                print("Error \(error)")
+                self.labelMensage.isHidden = false
+                self.collectionView.isHidden = true
             }
         }
     }
-    
-//    @IBAction func newCollection(_ sender: Any) {
-//        print("reload")
-//        reloadInputViews()
-//    }
-    
 }
+
 
 extension AlbumController: UICollectionViewDataSource {
     
@@ -96,22 +95,16 @@ extension AlbumController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("Item da lista:\(indexPath.row)")
-    
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "PhotoCell",
             for: indexPath
         ) as! FlickrPhotoCell
-
+        
         let flickrPhoto = PhotosModel.photoList[indexPath.row]
         let url = flickrPhoto.remoteURL
         let data = try? Data(contentsOf: url)
-        cell.backgroundColor = .white
-
+        
         cell.imageView.image = UIImage(data: data!)
-        
-        
-        cell.backgroundColor = UIColor.black
         
         return cell
     }

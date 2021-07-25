@@ -100,9 +100,16 @@
                                             <action selector="newCollection:" destination="VPR-Dc-whd" eventType="touchDragInside" id="RKC-oy-kwd"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nao possui foto cadastrada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TYC-zj-yuH">
+                                        <rect key="frame" x="0.0" y="17" width="320" height="327"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WTD-gh-O0f">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="327"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Zq-dm-DBb">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -128,7 +135,6 @@
                                                         <constraint firstAttribute="bottom" secondItem="7R6-tY-YZh" secondAttribute="bottom" id="k25-Ee-CyM"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <color key="backgroundColor" red="0.59857589010000001" green="0.86208599809999997" blue="0.94627636670000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="imageView" destination="7R6-tY-YZh" id="sqW-A2-rll"/>
                                                 </connections>
@@ -177,7 +183,9 @@
                     <navigationItem key="navigationItem" id="kPi-gy-dYG"/>
                     <connections>
                         <outlet property="collectionView" destination="WTD-gh-O0f" id="wou-Ai-9XV"/>
+                        <outlet property="labelMensage" destination="TYC-zj-yuH" id="X8u-zB-Qmt"/>
                         <outlet property="mapView" destination="yuL-qc-jOw" id="uib-8u-LUq"/>
+                        <outlet property="newCollection" destination="OaI-rx-qVb" id="ZqJ-T7-R6h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15k-58-pTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -188,9 +196,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

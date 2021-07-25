@@ -25,6 +25,7 @@
 		0CE10AD3269742A400789A69 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE10AD2269742A400789A69 /* MapController.swift */; };
 		0CE10AD626976B8100789A69 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE10AD526976B8100789A69 /* PhotosModel.swift */; };
 		0CE10ADA2697C9DE00789A69 /* AlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE10AD92697C9DE00789A69 /* AlbumController.swift */; };
+		0CE18E0626AE0E990030687F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CE18E0426AE0E990030687F /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		0CE10AD2269742A400789A69 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		0CE10AD526976B8100789A69 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		0CE10AD92697C9DE00789A69 /* AlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumController.swift; sourceTree = "<group>"; };
+		0CE18E0526AE0E990030687F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				0CE10AD526976B8100789A69 /* PhotosModel.swift */,
 				0CAC218326A11F9F00A640FA /* Map.swift */,
+				0CE18E0426AE0E990030687F /* Model.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				0CD17257269E63200072A82A /* FlickrAPI.swift in Sources */,
 				0CD1725C269E63F60072A82A /* FlickrPhotosInfoResponse.swift in Sources */,
 				0C6CAF6426AA360F00605770 /* FlickrPhotoCell.swift in Sources */,
+				0CE18E0626AE0E990030687F /* Model.xcdatamodeld in Sources */,
 				0C739629267EC6E900EF0A6E /* AppDelegate.swift in Sources */,
 				0CD17260269E64340072A82A /* FlickrFavoritesResponse.swift in Sources */,
 				0CD17259269E63CB0072A82A /* EndPoint.swift in Sources */,
@@ -410,6 +414,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0CE18E0426AE0E990030687F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0CE18E0526AE0E990030687F /* Model.xcdatamodel */,
+			);
+			currentVersion = 0CE18E0526AE0E990030687F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0C73961D267EC6E900EF0A6E /* Project object */;
 }
