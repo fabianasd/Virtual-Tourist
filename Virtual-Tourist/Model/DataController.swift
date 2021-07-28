@@ -13,33 +13,33 @@ class DataController {
     //recipiente persistente, ele nao deve mudar durante a vida do controlador de dados
     let persistentContainer:NSPersistentContainer
     
-    var viewContext:NSManagedObjectContext { //propriedade de convenienca para acessar o contexto.
-        return persistentContainer.viewContext //O container (DataController: cria uma fila principal chamada viewContext. Ele tambem fornece duas formas de  criar contextos em segundo plano...    //... 2 metodo para criar um contexto temporario, para realizar uma unica tarefa
-    }
-     
-    // propriedade para o contexto em 2 plano. Vamos desencapsular implicitamente
-    let backgroundContext:NSManagedObjectContext!
+        var viewContext:NSManagedObjectContext { //propriedade de convenienca para acessar o contexto.
+            return persistentContainer.viewContext //O container (DataController: cria uma fila principal chamada viewContext. Ele tambem fornece duas formas de  criar contextos em segundo plano...    //... 2 metodo para criar um contexto temporario, para realizar uma unica tarefa
+        }
+    //
+    //    // propriedade para o contexto em 2 plano. Vamos desencapsular implicitamente
+    //    let backgroundContext:NSManagedObjectContext!
     
     //inicializador que o configure
     init(modelName:String) {
         persistentContainer =  NSPersistentContainer(name: modelName)//instanciar o recipiente persistente = e passar o nome do modelo para o seu inicializador
-
+        
         //... 1: é um método padrao newBackgroundContext. Que cria um novo contexto em segundo plano.
-        backgroundContext = persistentContainer.newBackgroundContext()
+        //        backgroundContext = persistentContainer.newBackgroundContext()
     }
     
-    //instanciar para trabalhar os dois contextos
-    func configureContexts() {
-       // backgroundContext = persistentContainer.newBackgroundContext()// criar o contexto associado com uma fila privada
-        
-        //fusão de mudanças automaticamente
-        viewContext.automaticallyMergesChangesFromParent = true //frontal
-        backgroundContext.automaticallyMergesChangesFromParent = true //2 plano
-        
-        //politicas para o app não travar
-        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump //2 plano
-        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump //se houver conflito preferira os valores de propriedade
-    }
+    //    //instanciar para trabalhar os dois contextos
+    //    func configureContexts() {
+    //       // backgroundContext = persistentContainer.newBackgroundContext()// criar o contexto associado com uma fila privada
+    //
+    //        //fusão de mudanças automaticamente
+    //        viewContext.automaticallyMergesChangesFromParent = true //frontal
+    //        backgroundContext.automaticallyMergesChangesFromParent = true //2 plano
+    //
+    //        //politicas para o app não travar
+    //        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump //2 plano
+    //        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump //se houver conflito preferira os valores de propriedade
+    //    }
     
     //carregar o repositorio persistente.
     func load(completion: (() -> Void)? = nil) {
@@ -48,7 +48,7 @@ class DataController {
                 fatalError(error!.localizedDescription) //pare a execução e registre o problema
             }
             self.autoSaveViewContext()
-            self.configureContexts()
+            //            self.configureContexts()
             completion?()
         }
     }

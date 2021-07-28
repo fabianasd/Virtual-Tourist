@@ -16,6 +16,8 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     @IBOutlet weak var newCollection: UIButton!
     @IBOutlet weak var labelMensage: UILabel!
     
+    var dataController:DataController!
+
     var selectedAnnotation: MKPointAnnotation!
     var pagina = 1
     

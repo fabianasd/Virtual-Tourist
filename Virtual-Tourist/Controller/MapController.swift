@@ -13,6 +13,8 @@ import CoreData
 class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
+    var dataController:DataController!
+    
     private let label = UILabel()
     
     override func viewDidLoad() {
@@ -21,6 +23,8 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         gestureRecognizer.minimumPressDuration = 0.3
         
         mapView.addGestureRecognizer(gestureRecognizer)
+        
+//        let pin:Album
         
     }
     
