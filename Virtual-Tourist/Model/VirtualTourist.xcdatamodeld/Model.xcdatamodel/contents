@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Album" representedClassName="Album" syncable="YES" codeGenerationType="class">
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="pin" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Pin" inverseName="album" inverseEntity="Pin"/>
+    </entity>
+    <entity name="Pin" representedClassName="Pin" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="album" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Album" inverseName="pin" inverseEntity="Album"/>
+    </entity>
+    <elements>
+        <element name="Album" positionX="140.6390380859375" positionY="-9.03656005859375" width="121.8892822265625" height="73"/>
+        <element name="Pin" positionX="-72.02642822265625" positionY="-20.11322021484375" width="85.5867919921875" height="88"/>
+    </elements>
+</model>
