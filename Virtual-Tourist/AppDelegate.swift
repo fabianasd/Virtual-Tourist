@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,24 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         dataController.load()
         
-//        let navigationController = window?.rootViewController as! UINavigationController
-//        let albumController = navigationController.topViewController as! AlbumController
-//        albumController.dataController = dataController
+        let navigationController = window?.rootViewController as! UINavigationController
+        let mapview = navigationController.topViewController as! MapController
+        mapview.dataController = (UIApplication.shared.delegate as? AppDelegate)?.dataController
+        
+        
         return true
     }
     
     // MARK: UISceneSession Lifecycle
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
+   
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         saveViewContext()
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

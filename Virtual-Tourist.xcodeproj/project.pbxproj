@@ -10,9 +10,9 @@
 		0C6CAF6426AA360F00605770 /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6CAF6326AA360F00605770 /* FlickrPhotoCell.swift */; };
 		0C739629267EC6E900EF0A6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C739628267EC6E900EF0A6E /* AppDelegate.swift */; };
 		0C73962B267EC6E900EF0A6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C73962A267EC6E900EF0A6E /* SceneDelegate.swift */; };
-		0C739630267EC6E900EF0A6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C73962E267EC6E900EF0A6E /* Main.storyboard */; };
 		0C739632267EC6EE00EF0A6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C739631267EC6EE00EF0A6E /* Assets.xcassets */; };
 		0C739635267EC6EE00EF0A6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C739633267EC6EE00EF0A6E /* LaunchScreen.storyboard */; };
+		0C836C7D26B1A2E2008FF71D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C836C7C26B1A2E2008FF71D /* Main.storyboard */; };
 		0C8B018626A3B80100FD21C9 /* FlickrResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8B018526A3B80100FD21C9 /* FlickrResponse.swift */; };
 		0CAC217726A11A5900A640FA /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAC217626A11A5900A640FA /* Flickr.swift */; };
 		0CAC218426A11F9F00A640FA /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAC218326A11F9F00A640FA /* Map.swift */; };
@@ -34,10 +34,10 @@
 		0C739625267EC6E900EF0A6E /* Virtual-Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual-Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C739628267EC6E900EF0A6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C73962A267EC6E900EF0A6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0C73962F267EC6E900EF0A6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C739631267EC6EE00EF0A6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C739634267EC6EE00EF0A6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C739636267EC6EE00EF0A6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C836C7C26B1A2E2008FF71D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		0C8B018526A3B80100FD21C9 /* FlickrResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrResponse.swift; sourceTree = "<group>"; };
 		0CAC217626A11A5900A640FA /* Flickr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
 		0CAC218326A11F9F00A640FA /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -89,8 +89,8 @@
 				0CE10AD12697428100789A69 /* Controller */,
 				0C739628267EC6E900EF0A6E /* AppDelegate.swift */,
 				0C73962A267EC6E900EF0A6E /* SceneDelegate.swift */,
-				0C73962E267EC6E900EF0A6E /* Main.storyboard */,
 				0C739631267EC6EE00EF0A6E /* Assets.xcassets */,
+				0C836C7C26B1A2E2008FF71D /* Main.storyboard */,
 				0C739633267EC6EE00EF0A6E /* LaunchScreen.storyboard */,
 				0C739636267EC6EE00EF0A6E /* Info.plist */,
 			);
@@ -193,7 +193,7 @@
 			files = (
 				0C739635267EC6EE00EF0A6E /* LaunchScreen.storyboard in Resources */,
 				0C739632267EC6EE00EF0A6E /* Assets.xcassets in Resources */,
-				0C739630267EC6E900EF0A6E /* Main.storyboard in Resources */,
+				0C836C7D26B1A2E2008FF71D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,14 +227,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0C73962E267EC6E900EF0A6E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0C73962F267EC6E900EF0A6E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0C739633267EC6EE00EF0A6E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

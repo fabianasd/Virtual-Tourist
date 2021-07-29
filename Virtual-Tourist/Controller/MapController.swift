@@ -10,12 +10,29 @@ import UIKit
 import MapKit
 import CoreData
 
-class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
+    var pin: [Pin] = []
     var dataController:DataController!
+    var fetchedResultsController:NSFetchedResultsController<Pin>!
     
     private let label = UILabel()
+    
+    fileprivate func setupFetchedResultsController() {
+        let fetchRequest:NSFetchRequest<Pin> = Pin.fetchRequest()
+     //   let sortDescriptor = NSSortDescriptor(key: "idPin", ascending: true)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        // instanciar o fetchedResultsController
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "pin")
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+    }
     
     override func viewDidLoad() {
         
@@ -24,7 +41,7 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         
         mapView.addGestureRecognizer(gestureRecognizer)
         
-//        let pin:Album
+        setupFetchedResultsController()
         
     }
     
