@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +26,7 @@
                                         </connections>
                                     </mapView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="rRY-CK-ktj" firstAttribute="top" secondItem="Dy8-G0-pqz" secondAttribute="top" id="Ii2-qm-qbj"/>
                                     <constraint firstItem="rRY-CK-ktj" firstAttribute="leading" secondItem="Dy8-G0-pqz" secondAttribute="leading" id="JVg-LH-3VH"/>
@@ -37,15 +35,16 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Dy8-G0-pqz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3oJ-uR-zGP"/>
                             <constraint firstItem="Dy8-G0-pqz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lhs-d3-EgR"/>
                             <constraint firstAttribute="bottom" secondItem="Dy8-G0-pqz" secondAttribute="bottom" id="Xaj-eU-X0w"/>
                             <constraint firstItem="Dy8-G0-pqz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="v63-ba-6hs"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Igj-3L-L8a"/>
                     <connections>
                         <outlet property="mapView" destination="rRY-CK-ktj" id="Bv7-sa-4Ks"/>
                         <segue destination="VPR-Dc-whd" kind="show" identifier="AlbumPhotos" id="DLF-gA-EQh"/>
@@ -79,7 +78,7 @@
                                         </items>
                                     </navigationBar>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="enx-C3-ZzW" secondAttribute="bottom" constant="-54" id="9Pi-wQ-Htk"/>
                                     <constraint firstItem="enx-C3-ZzW" firstAttribute="top" secondItem="yRV-RN-QvG" secondAttribute="top" id="Ew9-OV-8gv"/>
@@ -90,25 +89,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-oI-LEL">
                                 <rect key="frame" x="0.0" y="187" width="320" height="361"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaI-rx-qVb">
-                                        <rect key="frame" x="108" y="331" width="104" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaI-rx-qVb">
+                                        <rect key="frame" x="0.0" y="328" width="320" height="33"/>
                                         <color key="backgroundColor" red="0.59857589010000001" green="0.86208599809999997" blue="0.94627636670000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="New Collection">
-                                            <color key="titleColor" red="0.15460468390000001" green="0.30267678149999999" blue="0.97225967639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="buscarFotosFlickr:" destination="VPR-Dc-whd" eventType="touchUpInside" id="Nkt-Vz-1un"/>
                                             <action selector="newCollection:" destination="VPR-Dc-whd" eventType="touchDragInside" id="RKC-oy-kwd"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nao possui foto cadastrada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TYC-zj-yuH">
-                                        <rect key="frame" x="0.0" y="17" width="320" height="327"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WTD-gh-O0f">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="327"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Zq-dm-DBb">
                                             <size key="itemSize" width="128" height="128"/>
@@ -116,6 +110,14 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
+                                        <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Does not have a registered photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TYC-zj-yuH">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="luG-tw-Ivy" customClass="FlickrPhotoCell" customModule="Virtual_Tourist" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -145,15 +147,26 @@
                                             <outlet property="delegate" destination="VPR-Dc-whd" id="Y2V-KS-flW"/>
                                         </connections>
                                     </collectionView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="reu-6r-bHg">
+                                        <rect key="frame" x="0.0" y="170.5" width="320" height="20"/>
+                                        <color key="color" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="reu-6r-bHg" firstAttribute="leading" secondItem="hEX-oI-LEL" secondAttribute="leading" id="6hd-fu-qVy"/>
                                     <constraint firstItem="OaI-rx-qVb" firstAttribute="centerX" secondItem="WTD-gh-O0f" secondAttribute="centerX" id="7Mc-z2-Rn3"/>
                                     <constraint firstAttribute="bottom" secondItem="OaI-rx-qVb" secondAttribute="bottom" id="8Wk-Ri-pTb"/>
                                     <constraint firstItem="WTD-gh-O0f" firstAttribute="leading" secondItem="hEX-oI-LEL" secondAttribute="leading" id="GiW-MM-k2e"/>
+                                    <constraint firstAttribute="bottom" secondItem="OaI-rx-qVb" secondAttribute="bottom" id="HER-M2-JM8"/>
+                                    <constraint firstItem="reu-6r-bHg" firstAttribute="centerX" secondItem="hEX-oI-LEL" secondAttribute="centerX" id="HbE-wW-BLS"/>
+                                    <constraint firstItem="reu-6r-bHg" firstAttribute="centerY" secondItem="hEX-oI-LEL" secondAttribute="centerY" id="QwJ-VJ-0Wb"/>
                                     <constraint firstItem="WTD-gh-O0f" firstAttribute="top" secondItem="hEX-oI-LEL" secondAttribute="top" id="fap-hn-bsq"/>
+                                    <constraint firstItem="OaI-rx-qVb" firstAttribute="leading" secondItem="hEX-oI-LEL" secondAttribute="leading" id="hjh-kT-Wzh"/>
+                                    <constraint firstAttribute="trailing" secondItem="reu-6r-bHg" secondAttribute="trailing" id="km9-lD-Bz5"/>
                                     <constraint firstAttribute="trailing" secondItem="WTD-gh-O0f" secondAttribute="trailing" id="wZ1-Vc-6zp"/>
                                     <constraint firstItem="OaI-rx-qVb" firstAttribute="top" secondItem="WTD-gh-O0f" secondAttribute="bottom" constant="4" id="xC9-nD-Ya7"/>
+                                    <constraint firstAttribute="trailing" secondItem="OaI-rx-qVb" secondAttribute="trailing" id="yQx-Qk-8Mh"/>
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yuL-qc-jOw">
@@ -163,8 +176,7 @@
                                 </connections>
                             </mapView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="XoU-Aa-nCf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hEX-oI-LEL" firstAttribute="trailing" secondItem="XoU-Aa-nCf" secondAttribute="trailing" id="B2J-zP-E2y"/>
                             <constraint firstItem="yuL-qc-jOw" firstAttribute="leading" secondItem="rXn-ds-M89" secondAttribute="leading" id="CX8-Gm-qnn"/>
@@ -179,11 +191,13 @@
                             <constraint firstItem="yRV-RN-QvG" firstAttribute="centerX" secondItem="rXn-ds-M89" secondAttribute="centerX" id="rbg-YF-VlT"/>
                             <constraint firstItem="hEX-oI-LEL" firstAttribute="leading" secondItem="XoU-Aa-nCf" secondAttribute="leading" id="xWi-JI-5Ae"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="XoU-Aa-nCf"/>
                     </view>
                     <navigationItem key="navigationItem" id="kPi-gy-dYG"/>
                     <connections>
                         <outlet property="collectionView" destination="WTD-gh-O0f" id="wou-Ai-9XV"/>
                         <outlet property="labelMensage" destination="TYC-zj-yuH" id="X8u-zB-Qmt"/>
+                        <outlet property="lodingActivity" destination="reu-6r-bHg" id="jq4-vH-M1c"/>
                         <outlet property="mapView" destination="yuL-qc-jOw" id="uib-8u-LUq"/>
                         <outlet property="newCollection" destination="OaI-rx-qVb" id="ZqJ-T7-R6h"/>
                     </connections>
@@ -193,9 +207,4 @@
             <point key="canvasLocation" x="890.625" y="138.38028169014083"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
