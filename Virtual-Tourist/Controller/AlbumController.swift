@@ -15,6 +15,7 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var newCollection: UIButton!
     @IBOutlet weak var labelMensage: UILabel!
+    @IBOutlet weak var lodingActivity: UIActivityIndicatorView!
     
     var favorites: [NSManagedObject] = []
     var dataController:DataController!
@@ -105,6 +106,7 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
     
     @IBAction func buscarFotosFlickr(_ sender: Any) {
         newCollection.isEnabled = false
+        activity(true)
         pagina = pagina + 1
         Flickr.buscarFotosDoFlickrDeAcordoComLatitudeELongitudePorPagina(latitude: selectedAnnotation.coordinate.latitude, longitude: selectedAnnotation.coordinate.longitude, pageNumero: pagina) { flickrResponse, error in
             // se nao for erro retornar as fotos
@@ -117,6 +119,7 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
                 }
                 self.collectionView.reloadData()
             }
+            self.activity(false)
             self.newCollection.isEnabled = true
         }
     }
@@ -179,6 +182,15 @@ extension AlbumController: UICollectionViewDataSource {
         saveFavoritePinToCoredata(latitude: selectedAnnotation.coordinate.latitude, longitude: selectedAnnotation.coordinate.longitude, url: photo.remoteURL.absoluteString)
         
         print("You selected cell #\(indexPath.item)!")
+    }
+    
+    func activity(_ activity: Bool) {
+        if activity {
+            lodingActivity.startAnimating()
+        } else {
+            lodingActivity.stopAnimating()
+        }
+        newCollection.isEnabled = !activity
     }
     
 }
