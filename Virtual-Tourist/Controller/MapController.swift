@@ -11,29 +11,17 @@ import MapKit
 import CoreData
 
 class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, NSFetchedResultsControllerDelegate {
+    //vinculacao do map
     @IBOutlet weak var mapView: MKMapView!
     
-    var pin: [Pin] = []
+    //declaracao das varias relacionadas ao coreData
+    var locations: [NSManagedObject] = []
     var dataController:DataController!
-    var fetchedResultsController:NSFetchedResultsController<Pin>!
-    
+   
+    //variavel da label
     private let label = UILabel()
-    
-    fileprivate func setupFetchedResultsController() {
-        let fetchRequest:NSFetchRequest<Pin> = Pin.fetchRequest()
-     //   let sortDescriptor = NSSortDescriptor(key: "idPin", ascending: true)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        // instanciar o fetchedResultsController
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "pin")
-        fetchedResultsController.delegate = self
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("The fetch could not be performed: \(error.localizedDescription)")
-        }
-    }
-    
+
+    //funcao chamada ao abrir app
     override func viewDidLoad() {
         
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(gesture:)))
@@ -41,19 +29,61 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         
         mapView.addGestureRecognizer(gestureRecognizer)
         
-        setupFetchedResultsController()
-        
+        //chama essa funcao
+        recuperarLocalizaoDePinosCoreData()
     }
     
+    //funcao para recuperar localizacao de pinos do coreData
+    func recuperarLocalizaoDePinosCoreData() {
+        //chama o appDelegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        //variavel para persistencia
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        //faz a requisicao
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Location")
+        do {
+            //declaracao das variaves segundo datamodel
+            locations = try managedContext.fetch(fetchRequest)
+            for location in locations {
+                let lat: Double = location.value(forKey: "lat") as! Double
+                let lon: Double = location.value(forKey: "lon") as! Double
+                
+                //variaveis
+                let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                
+                self.mapView.setCenter(coordinate, animated: true)
+                
+                //variavel com atribuicao de valor ao MKPointAnnotation
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                
+                //mapView com adicao do anotation
+                self.mapView.addAnnotation(annotation)
+                
+                
+            }
+        } catch let error as NSError { //se error retorna mensagem de erro
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    //funcao de configuracao do pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //variavel
         let reuseId = "pin"
         
+        //variavel referenciando ao reuseID
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         
+        //condicao que se pin for igual a nil, atribui ao pin algumas configuracoes
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
-            pinView!.pinTintColor = .red
+            pinView!.canShowCallout = true //mostra text se for o caso
+            pinView!.pinTintColor = .red //pin vermelho
             pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
@@ -63,7 +93,9 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         return pinView
     }
     
+    // funcao para configuracao o toque ao pin
     @objc private func handleLongPressGesture(gesture: UILongPressGestureRecognizer) {
+        // quando houver um toque longo em um pin esse bloco pega o toque e converte em acao
         if gesture.state == .began {
             let touch: CGPoint = gesture.location(in: self.mapView)
             
@@ -75,9 +107,39 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
             annotation.coordinate = coordinate
             
             self.mapView.addAnnotation(annotation)
+            
+            // chama a funcao salvar o pin no coreData, e passa latitude e longitude
+            saveFavoritePinToCoredata(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
     }
     
+    //salva o pin de acordo com a latitude e longitude no coreData
+    func saveFavoritePinToCoredata(latitude: Double, longitude: Double) {
+        // variavel do appDelegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        //1 atribui o contexto a persistencia do appDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        //2 variavel da entidade location, que foi declarada no dataModel
+        let entity = NSEntityDescription.entity(forEntityName: "Location", in: managedContext)!
+        
+        let todo = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        //3 atributos da tabela criada
+        todo.setValue(latitude, forKey: "lat")
+        todo.setValue(longitude, forKey: "lon")
+        //4 salvar
+        do {
+            try managedContext.save()
+        } catch let error as NSError { //retorna erro se algo falhar
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    // chama a proxima tela
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AlbumPhotos" {
             let albumController = segue.destination as! AlbumController
@@ -85,6 +147,7 @@ class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         }
     }
     
+    //
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         performSegue(withIdentifier: "AlbumPhotos", sender: view.annotation)
     }

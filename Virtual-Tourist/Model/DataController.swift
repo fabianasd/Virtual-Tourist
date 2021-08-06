@@ -10,52 +10,43 @@ import Foundation
 import CoreData
 
 class DataController {
-    //recipiente persistente, ele nao deve mudar durante a vida do controlador de dados
+    
     let persistentContainer:NSPersistentContainer
     
-        var viewContext:NSManagedObjectContext { //propriedade de convenienca para acessar o contexto.
-            return persistentContainer.viewContext //O container (DataController: cria uma fila principal chamada viewContext. Ele tambem fornece duas formas de  criar contextos em segundo plano...    //... 2 metodo para criar um contexto temporario, para realizar uma unica tarefa
-        }
-    //
-    //    // propriedade para o contexto em 2 plano. Vamos desencapsular implicitamente
-    //    let backgroundContext:NSManagedObjectContext!
-    
-    //inicializador que o configure
-    init(modelName:String) {
-        persistentContainer =  NSPersistentContainer(name: modelName)//instanciar o recipiente persistente = e passar o nome do modelo para o seu inicializador
-        
-        //... 1: é um método padrao newBackgroundContext. Que cria um novo contexto em segundo plano.
-        //        backgroundContext = persistentContainer.newBackgroundContext()
+    var viewContext:NSManagedObjectContext {
+        return persistentContainer.viewContext
     }
     
-    //    //instanciar para trabalhar os dois contextos
-    //    func configureContexts() {
-    //       // backgroundContext = persistentContainer.newBackgroundContext()// criar o contexto associado com uma fila privada
-    //
-    //        //fusão de mudanças automaticamente
-    //        viewContext.automaticallyMergesChangesFromParent = true //frontal
-    //        backgroundContext.automaticallyMergesChangesFromParent = true //2 plano
-    //
-    //        //politicas para o app não travar
-    //        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump //2 plano
-    //        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump //se houver conflito preferira os valores de propriedade
-    //    }
+    let backgroundContext:NSManagedObjectContext!
     
-    //carregar o repositorio persistente.
+    init(modelName:String) {
+        persistentContainer =  NSPersistentContainer(name: modelName)
+        
+        backgroundContext = persistentContainer.newBackgroundContext()
+    }
+    
+    func configureContexts() {
+        
+        viewContext.automaticallyMergesChangesFromParent = true
+        backgroundContext.automaticallyMergesChangesFromParent = true
+        
+        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+    }
+    
     func load(completion: (() -> Void)? = nil) {
         persistentContainer.loadPersistentStores { storeDescription, error in
             guard error == nil else {
-                fatalError(error!.localizedDescription) //pare a execução e registre o problema
+                fatalError(error!.localizedDescription)
             }
             self.autoSaveViewContext()
-            //            self.configureContexts()
+            self.configureContexts()
             completion?()
         }
     }
 }
 
 extension DataController {
-    //salva e chama recursivamente com frequencia
     func autoSaveViewContext(interval:TimeInterval = 30) {
         print("autosaving ")
         
@@ -64,10 +55,10 @@ extension DataController {
             return
         }
         if viewContext.hasChanges {
-            try? viewContext.save() // o metodo save pode roda, mas descartamos o erro utilizando "try"
+            try? viewContext.save()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
             self.autoSaveViewContext(interval: interval)
-        }//chama novamente o save
+        }
     }
 }
