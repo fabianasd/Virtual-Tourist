@@ -27,8 +27,8 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         super.viewDidLoad()
         self.mapView.delegate = self
         labelMensage.isHidden = false
-//        newCollection.isHidden = false
-      //  PhotosModel.photoList = []
+        //        newCollection.isHidden = false
+        //  PhotosModel.photoList = []
         retrieveFavoriteFromCoreData()
     }
     
@@ -39,7 +39,7 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favorite")
- 
+        
         let predicate = NSPredicate(format: "lat = %@ and lon = %@", String(selectedAnnotation.coordinate.latitude), String(selectedAnnotation.coordinate.longitude))
         fetchRequest.predicate = predicate
         do {
@@ -109,10 +109,8 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
         activity(true)
         pagina = pagina + 1
         Flickr.buscarFotosDoFlickrDeAcordoComLatitudeELongitudePorPagina(latitude: selectedAnnotation.coordinate.latitude, longitude: selectedAnnotation.coordinate.longitude, pageNumero: pagina) { flickrResponse, error in
-            // se nao for erro retornar as fotos
             if( flickrResponse?.photos.photo != []) {
-                //retornar as fotos
-//                PhotosModel.photoList = (flickrResponse != nil) ? flickrResponse?.photos.photo as! [Photo] : []
+                //                PhotosModel.photoList = (flickrResponse != nil) ? flickrResponse?.photos.photo as! [Photo] : []
                 let photos = (flickrResponse != nil) ? flickrResponse?.photos.photo as! [Photo] : []
                 for photo in photos {
                     PhotosModel.photoList.append(photo)
@@ -123,9 +121,7 @@ class AlbumController: UIViewController, MKMapViewDelegate, CLLocationManagerDel
             self.newCollection.isEnabled = true
         }
     }
-    
 }
-
 
 extension AlbumController: UICollectionViewDataSource {
     
@@ -141,7 +137,7 @@ extension AlbumController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "PhotoCell",
             for: indexPath
-        ) as! FlickrPhotoCell
+            ) as! FlickrPhotoCell
         
         let flickrPhoto = PhotosModel.photoList[indexPath.row]
         let url = flickrPhoto.remoteURL
@@ -156,18 +152,13 @@ extension AlbumController: UICollectionViewDataSource {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        //1
         let managedContext = appDelegate.persistentContainer.viewContext
-        //2
         let favoriteEntity = NSEntityDescription.entity(forEntityName: "Favorite", in: managedContext)!
         let favoriteObject = NSManagedObject(entity: favoriteEntity, insertInto: managedContext)
-        //3
-        print(latitude)
-        print(longitude)
+        
         favoriteObject.setValue(url, forKey: "url")
         favoriteObject.setValue(String(longitude), forKey: "lon")
         favoriteObject.setValue(String(latitude), forKey: "lat")
-        //4
         do {
             try managedContext.save()
         } catch let error as NSError {
@@ -176,7 +167,6 @@ extension AlbumController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
         
         let photo: Photo = PhotosModel.photoList[indexPath.row]
         saveFavoritePinToCoredata(latitude: selectedAnnotation.coordinate.latitude, longitude: selectedAnnotation.coordinate.longitude, url: photo.remoteURL.absoluteString)
