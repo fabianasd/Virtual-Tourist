@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,40 +12,38 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VirtualTourist_1024" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-Sy-MKv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.38519537450000002" blue="0.5557217002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tourist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wl7-W6-gKH">
-                                <rect key="frame" x="158" y="186" width="98" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Virtual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-Yh-i8l">
-                                <rect key="frame" x="160" y="672" width="95" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tourist Virtual" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-Yh-i8l">
+                                <rect key="frame" x="0.0" y="471" width="375" height="196"/>
+                                <color key="backgroundColor" red="0.0089346803720000006" green="0.28709906340000002" blue="0.44499221439999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4aF-Sy-MKv" secondAttribute="trailing" id="2l6-3l-SgG"/>
-                            <constraint firstItem="4aF-Sy-MKv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IPj-35-ayH"/>
-                            <constraint firstItem="4aF-Sy-MKv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nm4-z1-eR4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4aF-Sy-MKv" secondAttribute="bottom" id="RcG-Qc-bgN"/>
+                            <constraint firstItem="4aF-Sy-MKv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7T3-wQ-Ybj"/>
+                            <constraint firstItem="4aF-Sy-MKv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7tA-WA-QTN"/>
+                            <constraint firstItem="4aF-Sy-MKv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8CJ-rt-9du"/>
+                            <constraint firstItem="4aF-Sy-MKv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Y9S-eP-p6o"/>
+                            <constraint firstItem="Swd-Yh-i8l" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="iYW-ar-swI"/>
+                            <constraint firstItem="Swd-Yh-i8l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lDm-44-dd2"/>
+                            <constraint firstItem="Swd-Yh-i8l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="471" id="wdl-BH-pzw"/>
+                            <constraint firstItem="Swd-Yh-i8l" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zOh-gX-gSt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
